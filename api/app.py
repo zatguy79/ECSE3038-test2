@@ -47,7 +47,7 @@ class Reading(BaseModel):
 
 class Settings(BaseModel):
     mode: Literal["auto", "on", "off"]
-    temp_limit: float = Field(ge=0, le=100)
+    max_humidity: float = Field(ge=0, le=100)
 
 #THE FISRT TASKKK  (A1)
 
