@@ -1,37 +1,36 @@
+How to run the API:
+1. Open your virtual Machine, if you don't know how to do this, then refer to the end of this file
+2. Input the collowing commands one by one on your PowerShell
 
-This directory is intended for project header files.
+sudo systemctl stop iot-api            # frees port 8000 for the test
+git clone https://github.com/zatguy79/ECSE3038-test2.git
+cd ECSE3038-test2/api
+python3 -m venv venv
+source venv/bin/activate
+python -m pip install -r requirements.txt
+nano .env              # Input your MONGODB_URI=...  and  MQTT_NAME=<name> here
+uvicorn app:app --host 127.0.0.1 --port 8000
 
-A header file is a file containing C declarations and macro definitions
-to be shared between several project source files. You request the use of a
-header file in your project source file (C, C++, etc) located in `src` folder
-by including it, with the C preprocessing directive `#include'.
+3. The app should now be running on your VM, enjoy!
 
-```src/main.c
+How to run the board:
 
-#include "header.h"
+1. Download the board folder and place it in a suitable location.
+2. Ensure you have the PlatformIO extension installed on your VSCode.
+3. Open a new window in VSCode and click the anthead on the sidebar
+4. Select "Pick a Folder" and open up the board folder
+5. Create a include folder and place a secrets.h file in there and format it like this:
 
-int main (void)
-{
- ...
-}
-```
+#ifndef SECRETS_H
+#define SECRETS_H
 
-Including a header file produces the same results as copying the header file
-into each source file that needs it. Such copying would be time-consuming
-and error-prone. With a header file, the related declarations appear
-in only one place. If they need to be changed, they can be changed in one
-place, and programs that include the header file will automatically use the
-new version when next recompiled. The header file eliminates the labor of
-finding and changing all the copies as well as the risk that a failure to
-find one copy will result in inconsistencies within a program.
+#define WIFI_SSID "Wifi Network"
+#define WIFI_PASSWORD "Wifi Network"
+#define WIFI_CHANNEL number
+#define X_API_KEY "Your API Key"
+#define MQTT_NAME "Your MQTT Name"
 
-In C, the convention is to give header files names that end with `.h'.
+#endif
 
-Read more about using header files in official GCC documentation:
-
-* Include Syntax
-* Include Operation
-* Once-Only Headers
-* Computed Includes
-
-https://gcc.gnu.org/onlinedocs/cpp/Header-Files.html
+6. Click the tick on the bottom to build and when it's done, press F1 to Start the Simulation by lcikcing "Wokwi: Start Simulator"
+7. Enjoy!

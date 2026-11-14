@@ -24,7 +24,6 @@ fans = db["fans"]
 readings = db["readings"]
 settings = db["settings"]
 MQTT_BROKER = "135.232.203.144"
-MQTT_NAME = "qwerty2"
 
 fans.create_index([("mac", ASCENDING)], unique=True)
 
