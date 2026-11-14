@@ -1,5 +1,5 @@
 How to run the API:
-1. Open your virtual Machine, if you don't know how to do this, then refer to the end of this file
+1. Open your virtual Machine.
 2. Input the collowing commands one by one on your PowerShell
 
 sudo systemctl stop iot-api            # frees port 8000 for the test
